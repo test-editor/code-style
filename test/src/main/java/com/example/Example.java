@@ -10,3 +10,9 @@
  * akquinet AG
  * itemis AG
  *******************************************************************************/
+
+package com.example;
+
+public class Example {
+
+}

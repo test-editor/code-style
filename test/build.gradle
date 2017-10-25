@@ -1,0 +1,10 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    jcenter()
+}
+
+ext.codeStyleDir = '../'
+apply from: "$codeStyleDir/codestyle.gradle"
