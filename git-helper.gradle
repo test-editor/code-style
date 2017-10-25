@@ -1,0 +1,34 @@
+task checkThatCodeStyleIsUpToDate {
+    doLast {
+        if (isBehindGitRemote()) {
+            throw new GradleException("""
+                Your code-style is out-of-date.
+
+                Please update using:
+
+                    cd $codeStyleDir
+                    git pull --rebase origin master
+            """.stripIndent())
+        }
+    }
+    outputs.upToDateWhen { false }
+}
+
+compileJava.dependsOn checkThatCodeStyleIsUpToDate
+
+String exec(List<String> commands) {
+    return new ByteArrayOutputStream().withStream { out ->
+        def result = exec {
+            workingDir codeStyleDir
+            commandLine commands
+            standardOutput = out
+        }
+        return out.toString()
+    }
+}
+
+boolean isBehindGitRemote() {
+    exec(['git', 'remote', 'update'])
+    def status = exec(['git', 'status', '--porcelain', '-b']).readLines()[0]
+    return status =~ /.*behind (\d+).*/
+}

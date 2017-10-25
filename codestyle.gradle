@@ -2,4 +2,5 @@ if (!ext.has('codeStyleDir')) {
     ext.codeStyleDir = 'code-style'
 }
 
+apply from: "$codeStyleDir/git-helper.gradle"
 apply from: "$codeStyleDir/checkstyle/checkstyle.gradle"
