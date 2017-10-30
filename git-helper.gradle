@@ -6,8 +6,7 @@ task checkThatCodeStyleIsUpToDate {
 
                 Please update using:
 
-                    cd $codeStyleDir
-                    git pull --rebase origin master
+                    git submodule update --init --recursive
             """.stripIndent())
         }
     }

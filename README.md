@@ -17,4 +17,4 @@ And then add the following to your `build.gradle`
 If you need to add the submodule into another folder you will need to set the property `codeStyleDir` in your Gradle project:
 
     ext.codeStyleDir = 'someCustomFolder'
-    apply from: 'someCustomFolder/codestyle.gradle'
+    apply from: "$codeStyleDir/codestyle.gradle"
