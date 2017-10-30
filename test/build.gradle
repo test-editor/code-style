@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.xtext.xtend' version '1.0.19'
 }
 
 repositories {
@@ -8,3 +9,7 @@ repositories {
 
 ext.codeStyleDir = '../'
 apply from: "$codeStyleDir/codestyle.gradle"
+
+dependencies {
+  compile 'org.eclipse.xtend:org.eclipse.xtend.lib:2.13.0'
+}

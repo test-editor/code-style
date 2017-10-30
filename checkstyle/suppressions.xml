@@ -13,6 +13,7 @@
     <!-- Do not check Java code generated from Xtend sources,
          or by Xtext, in general. -->
     <suppress checks=".*" files=".*[\\/]xtend-gen[\\/]"/>
+    <suppress checks=".*" files=".*[\\/]build[\\/]xtend[\\/]"/>
     <suppress checks=".*" files=".*[\\/]xtext-gen[\\/]"/>
 </suppressions>
 

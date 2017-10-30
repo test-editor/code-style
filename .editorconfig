@@ -12,16 +12,12 @@ max_line_length = 120
 indent_style = space
 indent_size = 2
 
-[*.{java,gradle}]
+[*.{java,gradle,xtend}]
 indent_style = space
 indent_size = 4
 
 [*.{aml,tcl,tsl,tml,config}]
 indent_style = space
-indent_size = 4
-
-[*.xtend]
-indent_style = tab
 indent_size = 4
 
 [*.md]

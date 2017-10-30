@@ -1,8 +1,33 @@
 apply plugin: 'checkstyle'
 
+import org.gradle.api.plugins.quality.Checkstyle
+
 checkstyle {
     def checkstyleDir = "$codeStyleDir/checkstyle"
     toolVersion = '8.3'
     configFile = file("${checkstyleDir}/checkstyle.xml")
     configProperties = [checkstyleDir: checkstyleDir]
+}
+
+task checkstyleXtendMain(type: Checkstyle) {
+    source = sourceSets.main.java.getSrcDirs().collect { srcDir ->
+        fileTree(srcDir) {
+            includes = ['**/*.xtend']
+        }
+    }
+    classpath = sourceSets.main.compileClasspath
+}
+
+task checkstyleXtendTest(type: Checkstyle) {
+    source = sourceSets.test.java.getSrcDirs().collect { srcDir ->
+        fileTree(srcDir) {
+            includes = ['**/*.xtend']
+        }
+    }
+    classpath = sourceSets.test.compileClasspath
+}
+
+if (project.plugins.hasPlugin("org.xtext.xtend")) {
+    generateXtext.dependsOn(checkstyleXtendMain)
+    generateTestXtext.dependsOn(checkstyleXtendTest)
 }
