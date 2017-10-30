@@ -10,4 +10,9 @@
     <suppress checks="AvoidStaticImport" files=".*[\\/]src[\\/]test[\\/]"/>
     <suppress checks="WriteTag" files=".*[\\/]src[\\/]test[\\/]"/>
 
+    <!-- Do not check Java code generated from Xtend sources,
+         or by Xtext, in general. -->
+    <suppress checks=".*" files=".*[\\/]xtend-gen[\\/]"/>
+    <suppress checks=".*" files=".*[\\/]xtext-gen[\\/]"/>
 </suppressions>
+
