@@ -8,3 +8,6 @@ repositories {
 
 ext.codeStyleDir = '../'
 apply from: "$codeStyleDir/codestyle.gradle"
+
+sourceCompatibility = 1.10
+targetCompatibility = 1.10

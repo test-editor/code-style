@@ -1,13 +1,13 @@
-language: java
+language: nix
 sudo: false
-jdk:
-  - oraclejdk8
 cache:
   directories:
   - $HOME/.gradle/caches/
   - $HOME/.gradle/wrapper/
 before_install:
-  cd test
+- sudo mkdir -p /etc/nix
+- echo "substituters = https://cache.nixos.org/ file://$HOME/nix.store" | sudo tee -a /etc/nix/nix.conf > /dev/null
+- echo 'require-sigs = false' | sudo tee -a /etc/nix/nix.conf > /dev/null
 script:
-  - ./gradlew build
-  - ./test.sh
+- nix-shell --command "cd test && ./gradlew build"
+- nix-shell --command "cd test && ./test.sh"
