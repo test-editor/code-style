@@ -1,13 +1,17 @@
 with import <nixpkgs> {};
 
-let openjdk_10_0_2 = import ./openjdk_10_0_2.nix;
+let
+
+testeditor = pkgs.callPackage (import (builtins.fetchGit {
+      url = "https://github.com/test-editor/nix-packages";
+    })) {};
 
 in
 
 stdenv.mkDerivation {
     name = "test-editor-xtext-gradle";
     buildInputs = [
-        openjdk_10_0_2
+        testeditor.openjdk_10_0_2
         git
     ];
     shellHook = ''
