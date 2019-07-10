@@ -2,6 +2,7 @@ apply plugin: 'checkstyle'
 
 checkstyle {
     def checkstyleDir = "$codeStyleDir/checkstyle"
+    configDir = file("${checkstyleDir}")
     toolVersion = '8.3'
     configFile = file("${checkstyleDir}/checkstyle.xml")
     configProperties = [checkstyleDir: checkstyleDir]

@@ -16,13 +16,13 @@
 
     <!-- Suppressions -->
     <module name="SuppressionFilter">
-        <property name="file" value="${checkstyleDir}/suppressions.xml"/>
+        <property name="file" value="${config_loc}/suppressions.xml"/>
         <property name="optional" value="false"/>
     </module>
 
     <!-- Header -->
     <module name="Header">
-        <property name="headerFile" value="${checkstyleDir}/java.header"/>
+        <property name="headerFile" value="${config_loc}/java.header"/>
         <property name="fileExtensions" value="java"/>
     </module>
 
